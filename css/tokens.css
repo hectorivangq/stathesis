@@ -1,0 +1,124 @@
+/* ==========================================================================
+   STATHESIS Health Analytics: design tokens. The only file with raw values.
+   Dark Studio (from Hector's Swipe Shelf): a deep navy ground, hairline
+   panels, one reserved accent (oxblood fills, rose for text on dark).
+   Logo v4: the Point (main) and the Seal (stamp). Archivo for display,
+   Hanken Grotesk for text.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/archivo-vf.woff2") format("woff2");
+  font-weight: 400 800; font-stretch: 100% 125%; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("../fonts/hankengrotesk-vf.woff2") format("woff2");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
+@font-face { font-family: "Archivo Fallback"; src: local("Arial"); size-adjust: 106%; ascent-override: 88%; descent-override: 22%; }
+@font-face { font-family: "Hanken Fallback"; src: local("Arial"); size-adjust: 98%; ascent-override: 98%; descent-override: 26%; }
+
+:root {
+  color-scheme: dark;
+
+  /* ---- Brand ---- */
+  --navy:        #12263A;
+  --oxblood:     #8E2C3A;   /* fills only on dark: buttons, the closing band, the point */
+  --oxblood-hi:  #A8394A;   /* accent hover (white on it 6.3:1) */
+  --rose:        #E06C79;   /* accent as text on the ground (5.3:1) */
+  --rose-hi:     #EA8591;   /* accent as small text on panels (5.7:1) */
+  --white:       #FFFFFF;
+
+  /* ---- Dark grounds, darkest to lightest ---- */
+  --deep:        #0A1724;   /* footer */
+  --ground:      #0E1E2F;   /* page */
+  --panel:       #152B42;   /* raised panels */
+  --panel-hi:    #1B3450;   /* panel hover */
+  --photo-bg:    #3A3F48;
+
+  /* ---- Text on dark ---- */
+  --ink:         #FFFFFF;   /* headings */
+  --ink-2:       #D5DDE6;   /* body (12.3:1 on ground) */
+  --mist:        #A9B8C9;   /* secondary (8.3:1) */
+  --dim:         #8DA0B5;   /* labels, microtype (6.3:1) */
+
+  /* ---- Lines ---- */
+  --line:        #233850;   /* hairlines between panels */
+  --line-hi:     #3A5674;   /* hover / emphasis */
+  --needs-bg:    #3A2E1B;   /* placeholder tags */
+  --needs-ink:   #F1D19A;
+
+  /* ---- Semantic roles used by base.css ---- */
+  --color-bg:          var(--ground);
+  --color-surface:     var(--panel);
+  --color-surface-2:   var(--panel-hi);
+  --color-ink:         var(--ink-2);
+  --color-muted:       var(--mist);
+  --color-line:        var(--line);
+  --color-accent:      var(--oxblood);
+  --color-accent-ink:  var(--white);
+  --color-inverse:     var(--deep);
+  --color-inverse-ink: var(--white);
+
+  /* ---- Type ---- */
+  --font-display: "Archivo", "Archivo Fallback", Arial, sans-serif;
+  --font-body:    "Hanken Grotesk", "Hanken Fallback", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --weight-body: 400;
+  --weight-strong: 600;
+  --weight-display: 680;
+  --stretch-display: 110%;
+  --tracking-display: -0.024em;
+  --tracking-eyebrow: 0.22em;
+
+  --step--2: clamp(0.72rem, 0.70rem + 0.08vw, 0.78rem);
+  --step--1: clamp(0.84rem, 0.81rem + 0.12vw, 0.92rem);
+  --step-0:  clamp(1.00rem, 0.96rem + 0.19vw, 1.125rem);
+  --step-1:  clamp(1.15rem, 1.08rem + 0.33vw, 1.40rem);
+  --step-2:  clamp(1.32rem, 1.20rem + 0.52vw, 1.70rem);
+  --step-3:  clamp(1.45rem, 1.30rem + 0.65vw, 1.95rem);
+  --step-4:  clamp(1.70rem, 1.48rem + 0.95vw, 2.50rem);
+  --step-5:  clamp(1.95rem, 1.60rem + 1.55vw, 3.30rem);
+  --step-6:  clamp(2.20rem, 1.70rem + 2.20vw, 4.20rem);
+  --step-7:  clamp(2.45rem, 1.80rem + 2.90vw, 5.10rem);
+
+  --leading-tight: 1.02;
+  --leading-snug:  1.12;
+  --leading-body:  1.65;
+  --measure: 62ch;
+
+  /* ---- Space ---- */
+  --space-3xs: clamp(0.250rem, 0.240rem + 0.046vw, 0.281rem);
+  --space-2xs: clamp(0.500rem, 0.479rem + 0.093vw, 0.562rem);
+  --space-xs:  clamp(0.750rem, 0.719rem + 0.139vw, 0.844rem);
+  --space-s:   clamp(1.000rem, 0.958rem + 0.185vw, 1.125rem);
+  --space-m:   clamp(1.500rem, 1.438rem + 0.278vw, 1.688rem);
+  --space-l:   clamp(2.000rem, 1.917rem + 0.370vw, 2.250rem);
+  --space-xl:  clamp(3.000rem, 2.875rem + 0.556vw, 3.375rem);
+  --space-2xl: clamp(4.000rem, 3.833rem + 0.741vw, 4.500rem);
+  --space-3xl: clamp(6.000rem, 5.750rem + 1.111vw, 6.750rem);
+  --space-section: clamp(4.500rem, 2.700rem + 7.000vw, 8.500rem);
+  --gutter:        clamp(1.250rem, 0.667rem + 2.593vw, 3.000rem);
+  --container:     80rem;
+  --container-narrow: 48rem;
+
+  /* ---- Shape ---- */
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 14px;
+  --radius-pill: 999px;
+  --shadow-s: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-m: 0 24px 60px -30px rgb(0 0 0 / 0.7);
+
+  /* ---- Motion ---- */
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 640ms;
+  --dur-reveal: 1000ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-in: cubic-bezier(0.5, 0, 0.75, 0);
+  --ease-stamp: cubic-bezier(0.34, 1.32, 0.64, 1);
+  --reveal-distance: 1.5rem;
+  --stagger: 80ms;
+}
