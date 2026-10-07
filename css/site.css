@@ -179,8 +179,6 @@ a.inline:hover { text-decoration-color: currentColor; }
 .plot text { font-family: var(--font-body); font-size: 11px; fill: var(--dim); letter-spacing: 0.04em; }
 .plot .title { font-family: var(--font-display); font-stretch: var(--stretch-display); font-size: 15px; fill: var(--ink); letter-spacing: -0.01em; font-weight: 650; }
 .plot .pooled-g text { fill: var(--ink) !important; }
-.plot .stamp { width: 24%; left: auto; right: 2%; top: -7%; bottom: auto; }
-@media (min-width: 75rem) { .plot .stamp { right: -6%; top: -9%; } }
 .plot-caption { margin-top: var(--space-s); font-size: var(--step--2); color: var(--dim); letter-spacing: 0.06em; }
 
 /* ---- Clients: bento with the dot map ---- */
@@ -363,7 +361,6 @@ a svg.arrow { display: inline-block; vertical-align: -0.1em; margin-left: 0.3em;
   .plot text { font-size: 19px; }
   .plot .title { font-size: 20px; }
   .plot .dir { font-size: 15px; }
-  .plot .stamp { display: none; }
   .disc-tab { grid-template-columns: 2.6rem minmax(0, 1fr) auto; padding: var(--space-s); }
   .fig-label { font-size: 0.62rem; }
 }

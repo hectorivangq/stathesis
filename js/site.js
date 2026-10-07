@@ -281,7 +281,6 @@
     const rows = [...method.querySelectorAll('.plot .row')];
     const cis = rows.map((r) => r.querySelector('.ci'));
     const pooled = method.querySelector('.plot .pooled-g');
-    const pstamp = method.querySelector('.plot .stamp');
     method.classList.add('is-pinned');
     const setActive = (i) => mSteps.forEach((s, k) => s.classList.toggle('is-active', k === i));
     setActive(0);
@@ -289,7 +288,6 @@
     gsap.set(rows, { opacity: 0 });
     cis.forEach((ci) => gsap.set(ci, { attr: { x1: +ci.dataset.w1, x2: +ci.dataset.w2 } }));
     gsap.set(pooled, { opacity: 0, scale: 0.3, transformOrigin: '50% 50%' });
-    if (pstamp) gsap.set(pstamp, { opacity: 0, rotate: -26, scale: 1.4 });
     const tl = gsap.timeline({
       defaults: { ease: 'power2.out' },
       scrollTrigger: { trigger: method, start: 'top top', end: '+=280%', scrub: 0.6, pin: true, anticipatePin: 1,
@@ -299,7 +297,6 @@
       .to(rows, { opacity: 1, duration: 0.6, stagger: 0.18 }, '+=0.3')
       .to(cis, { attr: { x1: (i, el) => +el.dataset.n1, x2: (i, el) => +el.dataset.n2 }, duration: 1.4, stagger: 0.06, ease: 'power3.inOut' }, '+=0.4')
       .to(pooled, { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' }, '+=0.3');
-    if (pstamp) tl.to(pstamp, { opacity: 1, rotate: -9, scale: 1, duration: 0.6, ease: 'back.out(2.2)' }, '+=0.15');
     tl.to({}, { duration: 0.6 });
     return () => method.classList.remove('is-pinned');
   });
