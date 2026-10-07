@@ -108,17 +108,20 @@ a.inline:hover { text-decoration-color: currentColor; }
 .register { margin-top: var(--space-xl); border-top: 1px solid var(--line-hi); }
 .register-row { display: grid; grid-template-columns: 1fr; gap: var(--space-3xs) var(--space-m); padding: var(--space-m) var(--space-s); border-bottom: 1px solid var(--line); align-items: baseline; border-radius: var(--radius-m); transition: background-color var(--dur-base) var(--ease-out); }
 .register-row:hover { background: var(--panel); }
-@media (min-width: 48rem) { .register-row { grid-template-columns: 9rem minmax(0, 1fr) auto; } }
+@media (min-width: 48rem) { .register-row { grid-template-columns: 9rem auto 1fr; } }
 .register-row .when { font-size: var(--step--1); color: var(--dim); font-variant-numeric: tabular-nums; }
-.register-row .what { display: flex; align-items: baseline; gap: var(--space-s); min-width: 0; }
-.register-row .what b { font-family: var(--font-display); font-stretch: var(--stretch-display); color: var(--ink); font-size: var(--step-1); font-weight: 650; line-height: 1.25; }
-.register-row .what small { display: block; font-size: var(--step--1); color: var(--mist); margin-top: var(--space-3xs); }
-.register-row .leader { flex: 1 1 auto; min-width: 2rem; border-bottom: 1px dotted var(--line-hi); transform: translateY(-0.35em); display: none; transition: border-color var(--dur-base); }
+.register-row .what { min-width: 0; max-width: 40rem; }
+.register-row .what b { display: block; font-family: var(--font-display); font-stretch: var(--stretch-display); color: var(--ink); font-size: var(--step-1); font-weight: 650; line-height: 1.25; }
+/* The organisation wraps under the title instead of widening the column, so the leader starts right after the title. */
+.register-row .what small { display: block; width: 0; min-width: 100%; font-size: var(--step--1); color: var(--mist); margin-top: var(--space-3xs); }
+/* The leader lives inside the figure column and fills it, so it always runs up to the red number. */
+.register-row .fig-line { display: flex; align-items: baseline; justify-content: flex-end; gap: var(--space-xs); }
+.register-row .leader { --lift: -0.18em; flex: 1 1 auto; min-width: 2rem; align-self: baseline; border-bottom: 1px dotted var(--line-hi); transform: translateY(var(--lift)); display: none; transition: border-color var(--dur-base); }
 .register-row:hover .leader { border-color: var(--rose); }
 @media (min-width: 48rem) { .register-row .leader { display: block; } }
 .register-row .fig { font-family: var(--font-display); font-stretch: var(--stretch-display); font-size: var(--step-3); font-weight: 700; color: var(--rose); white-space: nowrap; line-height: 1; text-align: right; }
 .register-row .fig small { display: block; font-family: var(--font-body); font-size: var(--step--2); font-weight: var(--weight-strong); letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin-top: var(--space-2xs); }
-@media (max-width: 47.99rem) { .register-row .fig { text-align: left; } }
+@media (max-width: 47.99rem) { .register-row .fig { text-align: left; } .register-row .fig-line { justify-content: flex-start; } }
 
 /* ---- Disciplines: a tab row ---- */
 .disc { display: grid; gap: var(--space-l); }
@@ -370,8 +373,8 @@ a svg.arrow { display: inline-block; vertical-align: -0.1em; margin-left: 0.3em;
 @media (prefers-reduced-motion: no-preference) {
   .js .stamp[data-stamp] { opacity: 0; transform: rotate(-24deg) scale(1.35); }
   .js .stamp[data-stamp].is-in { opacity: 1; transform: rotate(-9deg) scale(1); transition: opacity 260ms var(--ease-out), transform 720ms var(--ease-stamp); }
-  .js .register-row .leader { transform: translateY(-0.35em) scaleX(0); transform-origin: left; transition: transform 1.1s var(--ease-out) 0.2s, border-color var(--dur-base); }
-  .js .register-row.is-in .leader { transform: translateY(-0.35em) scaleX(1); }
+  .js .register-row .leader { transform: translateY(var(--lift)) scaleX(0); transform-origin: left; transition: transform 1.1s var(--ease-out) 0.2s, border-color var(--dur-base); }
+  .js .register-row.is-in .leader { transform: translateY(var(--lift)) scaleX(1); }
   @view-transition { navigation: auto; }
 }
 @media (prefers-reduced-motion: reduce) { .map .base .pulse { animation: none; opacity: 0; } }
