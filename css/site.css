@@ -87,6 +87,8 @@ a.inline:hover { text-decoration-color: currentColor; }
 .fig-label.tl { top: var(--space-s); left: var(--space-s); } .fig-label.tr { top: var(--space-s); right: var(--space-s); }
 .fig-label.bl { bottom: var(--space-s); left: var(--space-s); } .fig-label.br { bottom: var(--space-s); right: var(--space-s); }
 .fig-label b { color: var(--rose-hi); font-weight: var(--weight-strong); }
+/* The hover hint means nothing on touch screens, and in Spanish it collides with the legend at phone width. */
+@media (hover: none), (max-width: 30rem) { .fig-label.bl { display: none; } }
 .facts { margin-top: var(--space-2xl); grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (min-width: 60rem) { .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .fact { padding: var(--space-m); display: grid; gap: var(--space-2xs); align-content: start; }
@@ -177,7 +179,7 @@ a.inline:hover { text-decoration-color: currentColor; }
 .plot .est { fill: var(--ink); }
 .plot .pooled { fill: var(--rose); }
 .plot text { font-family: var(--font-body); font-size: 11px; fill: var(--dim); letter-spacing: 0.04em; }
-.plot .title { font-family: var(--font-display); font-stretch: var(--stretch-display); font-size: 15px; fill: var(--ink); letter-spacing: -0.01em; font-weight: 650; }
+.plot .title { font-family: var(--font-display); font-stretch: 100%; font-size: 15px; fill: var(--ink); letter-spacing: -0.01em; font-weight: 650; }
 .plot .pooled-g text { fill: var(--ink) !important; }
 .plot-caption { margin-top: var(--space-s); font-size: var(--step--2); color: var(--dim); letter-spacing: 0.06em; }
 
@@ -359,7 +361,7 @@ a svg.arrow { display: inline-block; vertical-align: -0.1em; margin-left: 0.3em;
   .portrait figcaption { margin-top: var(--space-2xl); }
   .plot { padding: var(--space-s); }
   .plot text { font-size: 19px; }
-  .plot .title { font-size: 20px; }
+  .plot .title { font-size: 18px; }
   .plot .dir { font-size: 15px; }
   .disc-tab { grid-template-columns: 2.6rem minmax(0, 1fr) auto; padding: var(--space-s); }
   .fig-label { font-size: 0.62rem; }
