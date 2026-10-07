@@ -71,7 +71,7 @@ a.inline:hover { text-decoration-color: currentColor; }
   background: radial-gradient(closest-side, rgb(142 44 58 / 0.24), transparent 70%); }
 .hero-grid { position: relative; display: grid; gap: var(--space-xl); align-items: center; }
 @media (min-width: 60rem) { .hero-grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--space-2xl); min-height: min(74svh, 740px); } }
-.hero h1 { font-size: var(--step-7); line-height: var(--leading-tight); letter-spacing: -0.035em; margin-top: var(--space-m); max-width: 12ch; }
+.hero h1 { font-size: var(--step-7); line-height: var(--leading-tight); letter-spacing: -0.02em; margin-top: var(--space-m); max-width: 12ch; }
 .hero h1 .dim { color: var(--mist); }
 .hero .lede { margin-top: var(--space-m); font-size: var(--step-1); }
 .hero-actions { margin-top: var(--space-l); }
@@ -272,7 +272,7 @@ a.inline:hover { text-decoration-color: currentColor; }
 .page-hero { position: relative; padding-block: var(--space-2xl) var(--space-xl); border-bottom: 1px solid var(--line); overflow-x: hidden; overflow-x: clip; clip-path: inset(-100vh 0 0 0); }
 .page-hero::before { content: ""; position: absolute; right: -15%; top: -40%; width: 60vw; height: 60vw; max-width: 900px; max-height: 900px; border-radius: 50%; pointer-events: none; background: radial-gradient(closest-side, rgb(142 44 58 / 0.22), transparent 70%); }
 .page-hero > .container { position: relative; }
-.page-hero h1 { font-size: var(--step-6); line-height: var(--leading-tight); letter-spacing: -0.03em; margin-top: var(--space-s); max-width: 16ch; }
+.page-hero h1 { font-size: var(--step-6); line-height: var(--leading-tight); letter-spacing: -0.018em; margin-top: var(--space-s); max-width: 16ch; }
 .page-hero .lede { margin-top: var(--space-m); max-width: 56ch; }
 
 /* ---- Services page: side index + panels ---- */
@@ -316,7 +316,7 @@ a.inline:hover { text-decoration-color: currentColor; }
 /* ---- About page ---- */
 .about-grid { display: grid; gap: var(--space-2xl); }
 @media (min-width: 60rem) { .about-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: start; } }
-.about-name { font-size: var(--step-5); line-height: 1.04; letter-spacing: -0.03em; }
+.about-name { font-size: var(--step-5); line-height: 1.04; letter-spacing: -0.018em; }
 .about-grid .prose p { color: var(--ink-2); }
 .creds { list-style: none; padding: 0; display: grid; gap: var(--space-s); }
 .creds li { padding: var(--space-m); display: grid; gap: var(--space-3xs); margin: 0; }

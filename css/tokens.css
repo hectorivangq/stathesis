@@ -2,22 +2,22 @@
    STATHESIS Health Analytics: design tokens. The only file with raw values.
    Dark Studio (from Hector's Swipe Shelf): a deep navy ground, hairline
    panels, one reserved accent (oxblood fills, rose for text on dark).
-   Logo v4: the Point (main) and the Seal (stamp). Archivo for display,
-   Hanken Grotesk for text.
+   Logo v5: the Point (main) and the Seal (stamp). Mona Sans for display,
+   IBM Plex Sans for text. No other site uses either (brand registry).
    ========================================================================== */
 
 @font-face {
-  font-family: "Archivo";
-  src: url("../fonts/archivo-vf.woff2") format("woff2");
-  font-weight: 400 800; font-stretch: 100% 125%; font-style: normal; font-display: swap;
+  font-family: "Mona Sans";
+  src: url("../fonts/monasans-vf.woff2") format("woff2");
+  font-weight: 500 800; font-stretch: 100% 125%; font-style: normal; font-display: swap;
 }
 @font-face {
-  font-family: "Hanken Grotesk";
-  src: url("../fonts/hankengrotesk-vf.woff2") format("woff2");
-  font-weight: 100 900; font-style: normal; font-display: swap;
+  font-family: "IBM Plex Sans";
+  src: url("../fonts/ibmplexsans-vf.woff2") format("woff2");
+  font-weight: 400 700; font-style: normal; font-display: swap;
 }
-@font-face { font-family: "Archivo Fallback"; src: local("Arial"); size-adjust: 106%; ascent-override: 88%; descent-override: 22%; }
-@font-face { font-family: "Hanken Fallback"; src: local("Arial"); size-adjust: 98%; ascent-override: 98%; descent-override: 26%; }
+@font-face { font-family: "Mona Fallback"; src: local("Arial"); size-adjust: 115%; ascent-override: 95%; descent-override: 28%; }
+@font-face { font-family: "Plex Fallback"; src: local("Arial"); size-adjust: 101%; ascent-override: 102%; descent-override: 27%; }
 
 :root {
   color-scheme: dark;
@@ -62,13 +62,13 @@
   --color-inverse-ink: var(--white);
 
   /* ---- Type ---- */
-  --font-display: "Archivo", "Archivo Fallback", Arial, sans-serif;
-  --font-body:    "Hanken Grotesk", "Hanken Fallback", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Mona Sans", "Mona Fallback", Arial, sans-serif;
+  --font-body:    "IBM Plex Sans", "Plex Fallback", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --weight-body: 400;
   --weight-strong: 600;
   --weight-display: 680;
-  --stretch-display: 110%;
-  --tracking-display: -0.024em;
+  --stretch-display: 118%;
+  --tracking-display: -0.01em;
   --tracking-eyebrow: 0.22em;
 
   --step--2: clamp(0.72rem, 0.70rem + 0.08vw, 0.78rem);
