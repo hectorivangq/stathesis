@@ -4,7 +4,7 @@
       to the cursor, and drift apart as the hero scrolls away.
    2. Discipline tabs, the service-area map legend, the services side index.
    3. Small things that make it feel alive: cursor spotlight on panels,
-      magnetic buttons, a reading progress bar, the portrait stamp.
+      magnetic buttons and a reading progress bar.
    4. GSAP 3.13.0 + ScrollTrigger (home only): the pinned forest plot, the
       engagement line, the closing seal turning with the scroll.
    Everything is written to its finished state in the HTML, so no-JS and
@@ -48,21 +48,6 @@
       });
     }
   }
-
-  /* ---------------------------------------------------------------- portrait stamp */
-  document.querySelectorAll('.portrait').forEach((portrait) => {
-    const stamp = portrait.querySelector('[data-stamp]');
-    if (!stamp) return;
-    if (reduce) { stamp.classList.add('is-in'); return; }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        setTimeout(() => stamp.classList.add('is-in'), 900);
-        io.disconnect();
-      });
-    }, { threshold: 0.3 });
-    io.observe(portrait);
-  });
 
   /* ---------------------------------------------------------------- reveal safety net */
   if (!reduce) {
