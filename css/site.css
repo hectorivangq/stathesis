@@ -65,7 +65,8 @@ a.inline:hover { text-decoration-color: currentColor; }
 .mobile-nav a.lang { font-family: var(--font-body); font-size: var(--step-0); color: var(--mist); }
 
 /* ---- Hero ---- */
-.hero { position: relative; padding-block: var(--space-l) var(--space-2xl); overflow: hidden; }
+/* The glow is clipped at the sides and bottom only, so it runs up behind the transparent header instead of stopping in a hard line under it. */
+.hero { position: relative; padding-block: var(--space-l) var(--space-2xl); overflow-x: hidden; overflow-x: clip; clip-path: inset(-100vh 0 0 0); }
 .hero::before { content: ""; position: absolute; top: -25%; right: -15%; width: 70vw; height: 70vw; max-width: 1100px; max-height: 1100px; border-radius: 50%; pointer-events: none;
   background: radial-gradient(closest-side, rgb(142 44 58 / 0.24), transparent 70%); }
 .hero-grid { position: relative; display: grid; gap: var(--space-xl); align-items: center; }
@@ -270,7 +271,7 @@ a.inline:hover { text-decoration-color: currentColor; }
 .giant img { width: 100%; height: auto; display: block; opacity: 0.08; }
 
 /* ---- Inner page hero ---- */
-.page-hero { position: relative; padding-block: var(--space-2xl) var(--space-xl); border-bottom: 1px solid var(--line); overflow: hidden; }
+.page-hero { position: relative; padding-block: var(--space-2xl) var(--space-xl); border-bottom: 1px solid var(--line); overflow-x: hidden; overflow-x: clip; clip-path: inset(-100vh 0 0 0); }
 .page-hero::before { content: ""; position: absolute; right: -15%; top: -40%; width: 60vw; height: 60vw; max-width: 900px; max-height: 900px; border-radius: 50%; pointer-events: none; background: radial-gradient(closest-side, rgb(142 44 58 / 0.22), transparent 70%); }
 .page-hero > .container { position: relative; }
 .page-hero h1 { font-size: var(--step-6); line-height: var(--leading-tight); letter-spacing: -0.03em; margin-top: var(--space-s); max-width: 16ch; }
