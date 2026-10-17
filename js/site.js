@@ -99,11 +99,12 @@
     };
     size();
 
+    // The three colour groups never change, so they are sorted once, not on every frame
+    const groups = [[], [], []];
+    pts.forEach((p) => groups[p.dot ? 2 : (p.a > 0.7 ? 1 : 0)].push(p));
+    const fills = ['rgba(169,184,201,0.55)', 'rgba(255,255,255,0.9)', '#E06C79'];
     const draw = (t) => {
       ctx.clearRect(0, 0, W, H);
-      const groups = [[], [], []];
-      pts.forEach((p) => groups[p.dot ? 2 : (p.a > 0.7 ? 1 : 0)].push(p));
-      const fills = ['rgba(169,184,201,0.55)', 'rgba(255,255,255,0.9)', '#E06C79'];
       groups.forEach((g, gi) => {
         ctx.beginPath();
         g.forEach((p) => { const s = gi === 2 ? p.s * (1 + 0.12 * Math.sin(t / 420 + p.ph)) : p.s; ctx.moveTo(p.x + s, p.y); ctx.arc(p.x, p.y, s, 0, Math.PI * 2); });

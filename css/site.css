@@ -166,7 +166,7 @@ a.inline:hover { text-decoration-color: currentColor; }
 .method.is-pinned .section-head { margin-bottom: var(--space-l); }
 .method.is-pinned .h2 { font-size: var(--step-4); }
 .method.is-pinned .method-steps { gap: var(--space-s); }
-.method.is-pinned .mstep { opacity: 0.32; }
+.method.is-pinned .mstep { opacity: 0.68; } /* the lowest that keeps the dimmed steps at WCAG AA contrast */
 .method.is-pinned .mstep.is-active { opacity: 1; }
 .method.is-pinned .mstep p { font-size: var(--step--1); }
 .plot { margin: 0; padding: var(--space-m); box-shadow: var(--shadow-m); overflow: visible; }
