@@ -6,7 +6,7 @@
    3. Small things that make it feel alive: cursor spotlight on panels,
       magnetic buttons and a reading progress bar.
    4. GSAP 3.13.0 + ScrollTrigger (home only): the pinned forest plot, the
-      engagement line, the closing seal turning with the scroll.
+      engagement line.
    Everything is written to its finished state in the HTML, so no-JS and
    reduced-motion visitors get the complete page.
    ========================================================================== */
@@ -253,10 +253,6 @@
     });
     if (line) line.style.setProperty('--line-p', 0);
   }
-
-  // The closing seal turns as the band scrolls through
-  const seal = document.querySelector('.closing .seal-wrap img');
-  if (seal) gsap.fromTo(seal, { rotate: -40 }, { rotate: 40, ease: 'none', scrollTrigger: { trigger: '.closing', start: 'top bottom', end: 'bottom top', scrub: 0.6 } });
 
   // Method: pin the section and build the forest plot (desktop)
   const method = document.querySelector('.method');

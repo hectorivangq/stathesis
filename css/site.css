@@ -34,7 +34,7 @@ a.inline:hover { text-decoration-color: currentColor; }
 .hairgrid > * { background: var(--ground); min-width: 0; }
 
 /* ---- Buttons ---- */
-.btn { --btn-bg: var(--oxblood); --btn-ink: var(--white); border-radius: var(--radius-pill); font-size: var(--step--2); letter-spacing: 0.08em; text-transform: uppercase; padding: var(--space-s) var(--space-m); box-shadow: 0 10px 30px -14px rgb(142 44 58 / 0.9); }
+.btn { --btn-bg: var(--oxblood); --btn-ink: var(--white); border-radius: var(--radius-s); font-size: var(--step--2); letter-spacing: 0.08em; text-transform: uppercase; padding: var(--space-s) var(--space-m); box-shadow: 0 10px 30px -14px rgb(142 44 58 / 0.9); }
 .btn:hover { --btn-bg: var(--oxblood-hi); box-shadow: 0 14px 36px -14px rgb(168 57 74 / 1); }
 .btn--ghost { --btn-bg: transparent; --btn-ink: var(--ink); border-color: var(--line-hi); box-shadow: none; }
 .btn--ghost:hover { --btn-bg: rgb(255 255 255 / 0.06); border-color: var(--mist); box-shadow: none; }
@@ -62,6 +62,10 @@ a.inline:hover { text-decoration-color: currentColor; }
 .nav-toggle { color: var(--ink); }
 .mobile-nav { background: var(--deep); border-top: 1px solid var(--line); }
 .mobile-nav a { color: var(--ink); }
+/* Phone menu links carry the same roman numerals as the four disciplines */
+.mobile-nav { counter-reset: mnav; }
+.mobile-nav a:not(.btn):not(.lang) { counter-increment: mnav; display: flex; align-items: baseline; gap: var(--space-s); }
+.mobile-nav a:not(.btn):not(.lang)::before { content: counter(mnav, upper-roman); min-width: 1.75rem; font-family: var(--font-body); font-size: var(--step--1); font-weight: var(--weight-strong); color: var(--rose); }
 .mobile-nav a.lang { font-family: var(--font-body); font-size: var(--step-0); color: var(--mist); }
 
 /* ---- Hero ---- */
@@ -244,18 +248,20 @@ a.inline:hover { text-decoration-color: currentColor; }
 .closing { position: relative; overflow: hidden; background: var(--oxblood); color: var(--white); }
 .closing::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 90% at 85% 50%, rgb(255 255 255 / 0.10), transparent 70%); }
 .closing-grid { position: relative; display: grid; gap: var(--space-xl); align-items: center; }
-@media (min-width: 56rem) { .closing-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); } }
+@media (min-width: 56rem) { .closing-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: end; } }
+/* The ask sits in its own column behind a hairline, like the notes beside a figure */
+.closing-body { padding-top: var(--space-m); border-top: 1px solid rgb(255 255 255 / 0.35); }
+@media (min-width: 56rem) { .closing-body { padding: 0 0 0 var(--space-xl); border-top: 0; border-left: 1px solid rgb(255 255 255 / 0.35); } }
+.closing .closing-body p { margin-top: 0; }
 .closing h2 { font-size: var(--step-6); line-height: 1.02; max-width: 14ch; color: var(--white); }
 .closing p { color: #F3D3D7; margin-top: var(--space-m); max-width: 44ch; }
 .closing .eyebrow { color: var(--white); }
 .closing .eyebrow::before { background: var(--white); box-shadow: 0 0 0 4px rgb(255 255 255 / 0.2); }
 .closing .btn--ghost { --btn-ink: var(--white); border-color: rgb(255 255 255 / 0.45); }
 .closing .btn--ghost:hover { --btn-bg: rgb(255 255 255 / 0.12); }
-.closing .seal-wrap { justify-self: center; width: min(100%, 15rem); }
-.closing .seal-wrap img { width: 100%; height: auto; }
 
-/* ---- Footer with the cropped wordmark ---- */
-.site-footer { background: var(--deep); color: var(--ink-2); border-top: 1px solid var(--line); padding-bottom: 0; overflow: hidden; }
+/* ---- Footer ---- */
+.site-footer { background: var(--deep); color: var(--ink-2); border-top: 1px solid var(--line); overflow: hidden; }
 .site-footer a { color: var(--mist); }
 .site-footer a:hover { color: var(--ink); }
 .site-footer .foot-brand img { width: 12rem; height: auto; }
@@ -265,8 +271,6 @@ a.inline:hover { text-decoration-color: currentColor; }
 .footer-grid { display: grid; gap: var(--space-xl); }
 @media (min-width: 56rem) { .footer-grid { grid-template-columns: minmax(0, 5fr) repeat(3, minmax(0, 2fr)); } }
 .footer-base { border-top-color: var(--line); color: var(--dim); font-size: var(--step--1); }
-.giant { margin-top: var(--space-xl); margin-bottom: -3.4%; }
-.giant img { width: 100%; height: auto; display: block; opacity: 0.08; }
 
 /* ---- Inner page hero ---- */
 .page-hero { position: relative; padding-block: var(--space-2xl) var(--space-xl); border-bottom: 1px solid var(--line); overflow-x: hidden; overflow-x: clip; clip-path: inset(-100vh 0 0 0); }
